@@ -1,0 +1,42 @@
+{
+  "name": "grunt-diff-archive",
+  "description": "Git diff archiving grunt plugin.",
+  "version": "0.0.1",
+  "homepage": "https://github.com/sugarshin/grunt-diff-archive",
+  "author": {
+    "name": "sugarshin",
+    "email": "shinsugar@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:sugarshin/grunt-diff-archive.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sugarshin/grunt-diff-archive/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/sugarshin/grunt-diff-archive/blob/master/LICENSE-MIT"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-nodeunit": "^0.4.1",
+    "grunt-shell": "^0.7.0",
+    "grunt": "~0.4.5"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.5"
+  },
+  "keywords": [
+    "gruntplugin"
+  ]
+}
