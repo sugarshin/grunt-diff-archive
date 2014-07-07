@@ -1,7 +1,7 @@
 {
   "name": "grunt-diff-archive",
   "description": "Git diff archiving grunt plugin.",
-  "version": "0.0.1",
+  "version": "0.0.2b",
   "homepage": "https://github.com/sugarshin/grunt-diff-archive",
   "author": {
     "name": "sugarshin",
@@ -25,6 +25,9 @@
   },
   "scripts": {
     "test": "grunt test"
+  },
+  "dependencies": {
+    "grunt-shell": "^0.7.0"
   },
   "devDependencies": {
     "grunt-contrib-jshint": "^0.10.0",
