@@ -10,15 +10,7 @@
 
 module.exports = function(grunt) {
 
-  grunt.loadNpmTasks('grunt-shell');
-
-  //タスクの定義
-  grunt.registerMultiTask('diff', 'Git diff archiving grunt plugin.', function() {
-    var options = this.options({
-      pathName: 'diff',
-      fileName: 'archive.zip',
-      commit: '1'
-    });
+  grunt.initConfig({
     shell: {
       test: {
         command: function(options) {
@@ -35,5 +27,17 @@ module.exports = function(grunt) {
         }
       }
     }
+  });
+
+  grunt.loadNpmTasks('grunt-shell');
+
+  //タスクの定義
+  grunt.registerMultiTask('diff', 'Git diff archiving grunt plugin.', function() {
+    var options = this.options({
+      pathName: 'diff',
+      fileName: 'archive.zip',
+      commit: '1'
+    });
+    grunt.task.run('shell');
   });
 };

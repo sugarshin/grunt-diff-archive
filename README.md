@@ -1,3 +1,5 @@
+**修正中**
+
 # grunt-diff-archive
 
 > Git diff archiving grunt plugin.

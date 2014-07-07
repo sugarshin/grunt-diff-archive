@@ -1,7 +1,7 @@
 {
   "name": "grunt-diff-archive",
   "description": "Git diff archiving grunt plugin.",
-  "version": "0.0.2b",
+  "version": "0.0.2d",
   "homepage": "https://github.com/sugarshin/grunt-diff-archive",
   "author": {
     "name": "sugarshin",
