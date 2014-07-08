@@ -1,8 +1,10 @@
 # grunt-diff-archive
 
 > Git diff archiving grunt plugin.
-
+> Git 差分抽出してアーカイブします
 v0.0.4
+
+[npm](//www.npmjs.org/package/grunt-diff-archive)
 
 ## Getting Started
 This plugin requires Grunt `~0.4.5`
