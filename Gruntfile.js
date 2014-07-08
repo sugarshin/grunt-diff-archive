@@ -30,22 +30,11 @@ module.exports = function(grunt) {
 
     // Configuration to be run (and then tested).
     diff: {
-      // default_options: {
-      //   options: {
-      //   },
-      //   files: {
-      //     'tmp/default_options': ['test/fixtures/testing', 'test/fixtures/123']
-      //   }
-      // },
-      // custom_options: {
       options: {
-        separator: ': ',
-        punctuation: ' !!!'
+        pathName: 'diff_file',
+        fileName: 'diff.zip',
+        commit: '1'
       }
-        // files: {
-        //   'tmp/custom_options': ['test/fixtures/testing', 'test/fixtures/123']
-        // }
-      // }
     },
 
     // Unit tests.
@@ -62,7 +51,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
-  grunt.loadNpmTasks('grunt-shell');
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.

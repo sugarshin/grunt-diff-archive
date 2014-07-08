@@ -1,8 +1,8 @@
-**修正中**
-
 # grunt-diff-archive
 
 > Git diff archiving grunt plugin.
+
+v0.0.4
 
 ## Getting Started
 This plugin requires Grunt `~0.4.5`
@@ -19,10 +19,10 @@ Once the plugin has been installed, it may be enabled inside your Gruntfile with
 grunt.loadNpmTasks('grunt-diff-archive');
 ```
 
-## The "diff_archive" task
+## The "diff" task
 
 ### Overview
-In your project's Gruntfile, add a section named `diff_archive` to the data object passed into `grunt.initConfig()`.
+In your project's Gruntfile, add a section named `diff` to the data object passed into `grunt.initConfig()`.
 
 ```js
 grunt.initConfig({
@@ -71,7 +71,7 @@ In this example, custom options are used to do something else with whatever else
 
 ```js
 grunt.initConfig({
-  diff_archive: {
+  diff: {
     options: {
       pathName: 'root',
       fileName: 'diff-archive.zip',

@@ -6,38 +6,39 @@
  * Licensed under the MIT license.
  */
 
-'use strict';
-
+var exec = require('child_process').exec;
 module.exports = function(grunt) {
 
-  grunt.initConfig({
-    shell: {
-      test: {
-        command: function(options) {
-          var p = options.pathName,
-              f = options.fileName,
-              c = options.commit,
-              result;
-          result = "git archive --format=zip --prefix=" +
-                   p +
-                   "/ HEAD `git diff --name-only HEAD HEAD^` -o " +
-                   f;
-
-          return result;
-        }
-      }
-    }
-  });
-
-  grunt.loadNpmTasks('grunt-shell');
-
-  //タスクの定義
-  grunt.registerMultiTask('diff', 'Git diff archiving grunt plugin.', function() {
+  grunt.registerMultiTask('diff', 'Git diff archiving.', function() {
     var options = this.options({
       pathName: 'diff',
       fileName: 'archive.zip',
       commit: '1'
     });
-    grunt.task.run('shell');
+    console.log('pathName = ' + options.pathName);
+    console.log('fileName = ' + options.fileName);
+    console.log('commit = ' + options.commit);
+
+    function commandResult() {
+      var p = options.pathName,
+          f = options.fileName,
+          c = options.commit,
+          result;
+      result = "git archive --format=zip --prefix=" +
+               p +
+               "/ HEAD `git diff --name-only HEAD HEAD^` -o " +
+               f;
+      return result;
+    }
+
+    var options = { timeout:1000 };
+    var callback = function(error, stdout, stderr) {
+      console.log(stdout);
+    };
+    // exec(command, options, callback);
+
+
+    var command = commandResult();
+    exec(command);
   });
 };
