@@ -4,7 +4,7 @@
 
 > Git の差分ファイルを抽出してアーカイブします
 
-v0.0.4
+v0.0.4-b
 
 [www.npmjs.org/package/grunt-diff-archive](//www.npmjs.org/package/grunt-diff-archive)
 
@@ -59,7 +59,6 @@ Default value: `'1'`
 ### Usage Examples
 
 #### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
 
 ```js
 grunt.initConfig({
@@ -74,7 +73,6 @@ grunt.initConfig({
 ```
 
 #### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
 
 ```js
 grunt.initConfig({
@@ -87,8 +85,5 @@ grunt.initConfig({
 });
 ```
 
-## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
-
 ## Release History
-* 2014-07-09 v0.0.4
+* 2014-07-09 v0.0.4-b
