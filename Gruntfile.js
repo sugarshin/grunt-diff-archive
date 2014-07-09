@@ -30,11 +30,21 @@ module.exports = function(grunt) {
 
     // Configuration to be run (and then tested).
     diff: {
-      options: {
-        pathName: 'diff_file',
-        fileName: 'diff.zip',
-        commit: '1'
-      }
+      custom_options: {
+        pathName: 'diffs',
+        fileName: 'archives.zip',
+        commit: '4'
+      }//,
+      // defualt_options: {
+      //   pathName: 'diff',
+      //   fileName: 'archive.zip',
+      //   commit: '4'
+      // },
+      // custom_options: {
+      //   pathName: 'diff_file',
+      //   fileName: 'diff.zip',
+      //   commit: '2'
+      // }
     },
 
     // Unit tests.

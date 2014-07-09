@@ -26,12 +26,14 @@ module.exports = function(grunt) {
           result;
       result = "git archive --format=zip --prefix=" +
                p +
-               "/ HEAD `git diff --name-only HEAD HEAD^` -o " +
+               "/ HEAD `git diff --name-only HEAD HEAD~" +
+               c +
+               "` -o " +
                f;
       return result;
     }
 
-    var options = { timeout:1000 };
+    // var options = { timeout:1000 };
     var callback = function(error, stdout, stderr) {
       console.log(stdout);
     };

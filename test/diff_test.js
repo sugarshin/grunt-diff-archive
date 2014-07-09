@@ -1,7 +1,6 @@
 'use strict';
 
 var grunt = require('grunt');
-var grunt = require('grunt-shell');
 
 /*
   ======== A Handy Little Nodeunit Reference ========
@@ -45,5 +44,5 @@ exports.diff = {
     test.equal(actual, expected, 'should describe what the custom option(s) behavior is.');
 
     test.done();
-  },
+  }
 };
