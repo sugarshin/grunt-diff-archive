@@ -15,9 +15,6 @@ module.exports = function(grunt) {
       fileName: 'archive.zip',
       commit: '1'
     });
-    console.log('pathName = ' + options.pathName);
-    console.log('fileName = ' + options.fileName);
-    console.log('commit = ' + options.commit);
 
     function commandResult() {
       var p = options.pathName,
@@ -32,13 +29,6 @@ module.exports = function(grunt) {
                f;
       return result;
     }
-
-    // var options = { timeout:1000 };
-    var callback = function(error, stdout, stderr) {
-      console.log(stdout);
-    };
-    // exec(command, options, callback);
-
 
     var command = commandResult();
     exec(command);

@@ -4,7 +4,7 @@
 
 > Git の差分ファイルを抽出してアーカイブします
 
-v0.0.4-b
+v0.0.4c
 
 [www.npmjs.org/package/grunt-diff-archive](//www.npmjs.org/package/grunt-diff-archive)
 
