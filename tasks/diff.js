@@ -12,25 +12,44 @@ module.exports = function(grunt) {
   grunt.registerMultiTask('diff', 'Git diff archiving.', function() {
     var options = this.options({
       pathName: 'diff',
-      fileName: 'archive.zip',
+      directory: '',
+      fileName: 'archive.',
+      format: 'zip',
       commit: '1'
     });
 
-    function commandResult() {
-      var p = options.pathName,
-          f = options.fileName,
-          c = options.commit,
+    var commandResult = function() {
+      var pathName = options.pathName,
+          fileName = options.fileName,
+          directory = options.directory,
+          format = options.format,
+          commitCount = options.commit,
+          exte,
           result;
-      result = "git archive --format=zip --prefix=" +
-               p +
+
+      if (options.format === 'zip') {
+        exte = 'zip';
+      } else if (options.format === 'tar') {
+        exte = 'tar.gz';
+      }
+
+      result = "git archive --format=" +
+               format +
+               " --prefix=" +
+               pathName +
                "/ HEAD `git diff --name-only HEAD HEAD~" +
-               c +
-               "` -o " +
-               f;
+               commitCount +
+               "` " +
+               directory +
+               " -o " +
+               fileName +
+               exte;
       return result;
     }
 
-    var command = commandResult();
+    var command;
+
+    command = commandResult();
     exec(command);
   });
 };
