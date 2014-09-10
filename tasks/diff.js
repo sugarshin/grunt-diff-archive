@@ -12,7 +12,6 @@ module.exports = function(grunt) {
   grunt.registerMultiTask('diff', 'Git diff archiving.', function() {
     var options = this.options({
       pathName: 'diff',
-      directory: '',
       fileName: 'archive.',
       format: 'zip',
       commit: '1'
@@ -21,7 +20,6 @@ module.exports = function(grunt) {
     var commandResult = function() {
       var pathName = options.pathName,
           fileName = options.fileName,
-          directory = options.directory,
           format = options.format,
           commitCount = options.commit,
           exte,
@@ -39,9 +37,7 @@ module.exports = function(grunt) {
                pathName +
                "/ HEAD `git diff --name-only HEAD HEAD~" +
                commitCount +
-               "` " +
-               directory +
-               " -o " +
+               "` -o " +
                fileName +
                exte;
       return result;
