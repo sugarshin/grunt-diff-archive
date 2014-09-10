@@ -4,7 +4,7 @@
 
 > Git の差分ファイルを抽出してアーカイブします
 
-v0.0.4c
+v0.0.5
 
 [www.npmjs.org/package/grunt-diff-archive](//www.npmjs.org/package/grunt-diff-archive)
 
@@ -44,17 +44,41 @@ grunt.initConfig({
 ### Options
 
 #### options.pathName
+
+生成先のディレクトリ名
+
 Type: `String`
 Default value: `'diff'`
 
-
-#### options.fileName
-Type: `String`
-Default value: `'archive.zip'`
-
 #### options.commit
+
+対象 commit 数
+
 Type: `String`
 Default value: `'1'`
+
+
+#### options.directory
+
+アーカイブ対象ディレクトリ
+
+Type: `String`
+Default value: `''`
+
+#### options.fileName
+
+アーカイブファイル名
+
+Type: `String`
+Default value: `'archive'`
+
+#### options.format
+
+アーカイブフォーマット
+
+Type: `String` `'zip'` or `'tar'`
+Default value: `'zip'`
+
 
 ### Usage Examples
 
@@ -65,9 +89,13 @@ grunt.initConfig({
   diff: {
     options: {
       pathName: 'diff',
-      fileName: 'archive.zip',
+      directory: '',
+      fileName: 'archive.',
+      format: 'zip',
       commit: '1'
-    }
+    },
+
+    archive: {}
   }
 });
 ```
@@ -78,12 +106,16 @@ grunt.initConfig({
 grunt.initConfig({
   diff: {
     options: {
-      pathName: 'root',
-      fileName: 'diff-archive.zip'
-    }
+      pathName: 'archive',
+      fileName: 'diff-archive.zip',
+      commit: '3'
+    },
+
+    archive: {}
   }
 });
 ```
 
 ## Release History
+* 2014-09-10 v0.0.5
 * 2014-07-09 v0.0.4-b
