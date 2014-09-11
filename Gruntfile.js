@@ -33,18 +33,15 @@ module.exports = function(grunt) {
       custom_options: {
         pathName: 'diffs',
         fileName: 'archives.zip',
-        commit: '4'
-      }//,
-      // defualt_options: {
-      //   pathName: 'diff',
-      //   fileName: 'archive.zip',
-      //   commit: '4'
-      // },
-      // custom_options: {
-      //   pathName: 'diff_file',
-      //   fileName: 'diff.zip',
-      //   commit: '2'
-      // }
+        targetCommit: 4
+      },
+      defualt_options: {
+        pathName: 'root',
+        fileName: 'archive',
+        format: 'zip',
+        originCommit: 'HEAD',
+        targetCommit: 1
+      }
     },
 
     // Unit tests.

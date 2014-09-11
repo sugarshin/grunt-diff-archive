@@ -11,41 +11,63 @@ module.exports = function(grunt) {
 
   grunt.registerMultiTask('diff', 'Git diff archiving.', function() {
     var options = this.options({
-      pathName: 'diff',
-      fileName: 'archive.',
+      pathName: 'root',
+      fileName: 'archive',
       format: 'zip',
-      commit: '1'
+      originCommit: 'HEAD',
+      targetCommit: 1
     });
+
+    // helper
+    var _isNumber = function(x) {
+      if (typeof x !== 'number' && typeof x !== 'string') {
+        return false;
+      } else {
+        return (x == parseFloat(x) && isFinite(x));
+      }
+    };
 
     var commandResult = function() {
       var pathName = options.pathName,
           fileName = options.fileName,
           format = options.format,
-          commitCount = options.commit,
+          originCommit = options.originCommit,
+          targetCommit,
           exte,
           result;
 
-      if (options.format === 'zip') {
-        exte = 'zip';
-      } else if (options.format === 'tar') {
-        exte = 'tar.gz';
+      if (format === 'zip') {
+        exte = '.zip';
+      } else if (format === 'tar') {
+        exte = '.tar.gz';
       }
 
-      result = "git archive --format=" +
+      if (_isNumber(options.targetCommit)) {
+        targetCommit = 'HEAD~' + parseInt(options.targetCommit, 10);
+      } else {
+        targetCommit = options.targetCommit
+      }
+
+      result = 'git archive --format=' +
                format +
-               " --prefix=" +
+               ' --prefix=' +
                pathName +
-               "/ HEAD `git diff --name-only HEAD HEAD~" +
-               commitCount +
-               "` -o " +
-               fileName +
-               exte;
+               '/ ' +
+               originCommit +
+               ' `git diff --name-only ' +
+               originCommit +
+               ' ' +
+               targetCommit +
+               '` -o ' +
+               fileName + exte;
+
       return result;
     }
 
     var command;
 
     command = commandResult();
+
     exec(command);
   });
 };

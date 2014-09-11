@@ -4,7 +4,7 @@
 
 > Git の差分ファイルを抽出してアーカイブします
 
-v0.0.5b
+v0.0.6
 
 [www.npmjs.org/package/grunt-diff-archive](//www.npmjs.org/package/grunt-diff-archive)
 
@@ -48,14 +48,7 @@ grunt.initConfig({
 指定の名前のディレクトリ名でアーカイブされます
 
 Type: `String`
-Default value: `'diff'`
-
-#### options.commit
-
-対象 commit 数
-
-Type: `String`
-Default value: `'1'`
+Default: `'root'`
 
 #### options.fileName
 
@@ -71,6 +64,24 @@ Default value: `'archive'`
 Type: `String` `'zip'` or `'tar'`
 Default value: `'zip'`
 
+#### originCommit
+
+基点となるコミットID
+
+Type: `String`
+Default value: `'HEAD'`
+
+#### options.targetCommit
+
+対象のコミットID
+
+数値の場合は `options.originCommit` 遡る数のほか
+
+任意のコミットID (文字列)も渡せます
+
+Type: `Number` or `String`
+Default value: `1`
+
 
 ### Usage Examples
 
@@ -80,13 +91,14 @@ Default value: `'zip'`
 grunt.initConfig({
   diff: {
     options: {
-      pathName: 'diff',
-      fileName: 'archive.',
+      pathName: 'root',
+      fileName: 'archive',
       format: 'zip',
-      commit: '1'
+      originCommit: 'HEAD',
+      targetCommit: 1
     },
 
-    archive: {}
+    target: {}
   }
 });
 ```
@@ -98,15 +110,40 @@ grunt.initConfig({
   diff: {
     options: {
       pathName: 'archive',
-      fileName: 'diff-archive.zip',
-      commit: '3'
+      fileName: 'diff-archive',
+      targetCommit: '414fb27g' // commitID
     },
 
-    archive: {}
+    target: {}
   }
 });
 ```
 
+## License
+
+The MIT License (MIT)
+
+Copyright (c) github.com/sugarshin
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
 ## Release History
+* 2014-09-11 v0.0.6
 * 2014-09-10 v0.0.5-b
 * 2014-07-09 v0.0.4-b
